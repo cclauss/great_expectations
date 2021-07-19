@@ -324,9 +324,7 @@ class ExpectationSuiteValidationResult(SerializableDictDot):
             if len(metric_name_parts) == 2:
                 return self.statistics.get(metric_name_parts[1])
             else:
-                raise UnavailableMetricError(
-                    f"Unrecognized metric {metric_name}"
-                )
+                raise UnavailableMetricError(f"Unrecognized metric {metric_name}")
 
         # Expose expectation-defined metrics
         elif metric_name_parts[0].lower().startswith("expect_"):
