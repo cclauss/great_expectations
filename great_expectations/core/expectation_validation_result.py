@@ -221,7 +221,7 @@ class ExpectationValidationResult(SerializableDictDot):
                         "Unable to get metric {} -- KeyError in "
                         "ExpectationValidationResult.".format(metric_name)
                     )
-        raise UnavailableMetricError("Unrecognized metric name {}".format(metric_name))
+        raise UnavailableMetricError(f"Unrecognized metric name {metric_name}")
 
 
 class ExpectationValidationResultSchema(Schema):
@@ -325,7 +325,7 @@ class ExpectationSuiteValidationResult(SerializableDictDot):
                 return self.statistics.get(metric_name_parts[1])
             else:
                 raise UnavailableMetricError(
-                    "Unrecognized metric {}".format(metric_name)
+                    f"Unrecognized metric {metric_name}"
                 )
 
         # Expose expectation-defined metrics
